@@ -1,0 +1,36 @@
+/* struct Node {
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
+};
+*/
+
+//Function to find the data of nth node from the end of a linked list.
+int getNthFromLast(Node *head, int n)
+{
+       Node *ptr,*temp;
+       int j,count=1;
+       temp=ptr=head;
+       while(ptr->next!=NULL)
+       {
+            ptr=ptr->next;
+            count++;
+       }
+       j=count-n;
+       if(j<=0)
+       return -1;
+       else
+       {
+            while(count<=(2*(j))+1)
+            {
+                temp=temp->next;
+                count++;
+            }
+            return temp->data;
+       }
+       
+
+}
